@@ -1,15 +1,18 @@
+@using Tracker.Components
+
 @if(isVisible){
  <div>
     <div class="w-full h-[100vh] backdrop-blur backdrop-blur-sm absolute top-0">
         <div class="w-7/12 h-full mx-auto bg-white p-10">
             <div class="grid grid-flow-cols gap-5">
                 <div class="flex justify-end">
-                    <button @onclick="Hide" class="text-3xl font-semibold">x</button>
+                    <button @onclick="Hide" class="text-3xl">x</button>
                 </div>
 
                 <div class="grid">
                     <label class="text-slate-600 text-lg">Issue Type</label>
-                    <select name="type" class="px-1 py-2 rounded-lg outline outline-[2px] outline-gray-300 border-none focus:outline-none">
+                    <select name="type" class="p-2 rounded-lg outline outline-[2px] outline-gray-300 border-none focus:outline-none text-gray-400">
+                        <option>Select an issue type</option>Sele
                         <option>Story</option>
                         <option>Task</option>
                         <option>Bug</option>
@@ -18,7 +21,7 @@
 
                 <div class="grid">
                     <label class="text-slate-600 text-lg">Summary</label>
-                    <input class="px-1 py-2 rounded-lg outline outline-[2px] outline-gray-300 border-none  focus:outline-blue-600" type="string" placeholder="e.g Create a new program"/>
+                    <input class="p-2 rounded-lg outline outline-[2px] outline-gray-300 border-none  focus:outline-blue-600" type="string" placeholder="e.g Create a new program"/>
                 </div>
 
                 <div class="grid">
@@ -29,7 +32,8 @@
                 <div class="flex gap-5">
                     <div class="grid w-full">
                     <label class="text-slate-600 text-lg">Issue State</label>
-                    <select name="type" class="px-1 py-2 rounded-lg outline outline-[2px] outline-gray-300 border-none focus:outline-none w-full">
+                    <select name="type" class="px-1 py-2 rounded-lg outline outline-[2px] outline-gray-300 border-none focus:outline-none w-full text-gray-400">
+                        <option>Select an issue state</option>
                         <option>New</option>
                         <option>Pending</option>
                         <option>COmpleted</option>
@@ -37,7 +41,7 @@
                 </div>
                     <div class="grid w-full">
                         <label class="text-slate-600 text-lg">Due Date</label>
-                        <input class="px-1 py-2 rounded-lg outline outline-[2px] outline-gray-300 border-none  focus:outline-none w-full" type="date" placeholder="e.g Create a new program"/>
+                        <input class="px-1 py-2 rounded-lg outline outline-[2px] outline-gray-300 border-none  focus:outline-none w-full text-gray-400" type="date" placeholder="e.g Create a new program"/>
                     </div>
                 </div>
 
