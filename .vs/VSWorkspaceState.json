@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Tracker",
+    "\\Tracker\\Tracker",
+    "\\Tracker\\Tracker\\Components",
+    "\\Tracker\\Tracker\\wwwroot",
+    "\\Tracker\\Tracker\\wwwroot\\css",
+    "\\Tracker\\Tracker\\wwwroot\\css\\material"
+  ],
+  "SelectedNode": "\\Tracker\\Tracker\\wwwroot\\css\\material\\material.css",
+  "PreviewInSolutionExplorer": false
+}

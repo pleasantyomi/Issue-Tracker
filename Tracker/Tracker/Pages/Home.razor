@@ -1,0 +1,26 @@
+@page "/"
+@using Tracker.Components
+@inject IVersionProvider VersionProvider
+
+<div  class="flex mx-auto gap-10 align-center w-10/12 h-[80vh] relative mt-[4rem]">
+    <div class="rounded-[20px] p-5 bg-stone-100 w-full h-full">
+        <div class="flex justify-between items-center">
+            <h1 class="font-semibold text-xl text-gray-800">To Do</h1>
+            <button @onclick="OpenDialog" class="bg-blue-700 w-10 h-10 rounded-full text-2xl text-white block">+</button>
+        </div>
+    </div>
+
+    <div class="rounded-[20px] p-5 bg-stone-100 w-full h-full">
+        <div>
+            <h1 class="font-semibold text-xl text-gray-800">IN PROGRESS</h1>
+        </div>
+    </div>
+
+     <div class="rounded-[20px] p-5 bg-stone-100 w-full h-full">
+        <div>
+            <h1 class="font-semibold text-xl text-gray-800">DONE</h1>
+        </div>
+    </div>
+</div>
+
+<Dialog @ref="dialog"/>

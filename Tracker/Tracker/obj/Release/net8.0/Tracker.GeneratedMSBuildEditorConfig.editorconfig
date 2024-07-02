@@ -1,0 +1,71 @@
+is_global = true
+build_property.EnableAotAnalyzer = 
+build_property.EnableSingleFileAnalyzer = 
+build_property.EnableTrimAnalyzer = false
+build_property.IncludeAllContentForSelfExtract = 
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = browser
+build_property.RootNamespace = Tracker
+build_property.RootNamespace = Tracker
+build_property.ProjectDir = C:\Users\P_DEV\Documents\C#\Tracker\Tracker\Tracker\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = false
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\P_DEV\Documents\C#\Tracker\Tracker\Tracker
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/P_DEV/Documents/C\#/Tracker/Tracker/Tracker/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/P_DEV/Documents/C\#/Tracker/Tracker/Tracker/Components/Layout/FooterMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcRm9vdGVyTWVudS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/P_DEV/Documents/C\#/Tracker/Tracker/Tracker/Components/Layout/SideMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcU2lkZU1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/P_DEV/Documents/C\#/Tracker/Tracker/Tracker/Components/Layout/TopMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcVG9wTWVudS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/P_DEV/Documents/C\#/Tracker/Tracker/Tracker/Components/TodoApp/TodoItem.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xUb2RvQXBwXFRvZG9JdGVtLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/P_DEV/Documents/C\#/Tracker/Tracker/Tracker/Components/TodoApp/TodoItems.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xUb2RvQXBwXFRvZG9JdGVtcy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/P_DEV/Documents/C\#/Tracker/Tracker/Tracker/Layouts/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0c1xNYWluTGF5b3V0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/P_DEV/Documents/C\#/Tracker/Tracker/Tracker/Pages/Dashboard.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGFzaGJvYXJkLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/P_DEV/Documents/C\#/Tracker/Tracker/Tracker/Pages/SimpleFormPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2ltcGxlRm9ybVBhZ2UucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/P_DEV/Documents/C\#/Tracker/Tracker/Tracker/Pages/TodoAppPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVG9kb0FwcFBhZ2UucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/P_DEV/Documents/C\#/Tracker/Tracker/Tracker/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/P_DEV/Documents/C\#/Tracker/Tracker/Tracker/Components/Layout/ThemeColorSelector.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcVGhlbWVDb2xvclNlbGVjdG9yLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-62av9khd3e
