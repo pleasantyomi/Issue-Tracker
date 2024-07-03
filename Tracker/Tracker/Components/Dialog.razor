@@ -1,4 +1,5 @@
 @using Tracker.Components
+@using Tracker.Pages
 
 @if(isVisible){
  <div>
@@ -11,8 +12,8 @@
 
                 <div class="grid">
                     <label class="text-slate-600 text-lg">Issue Type</label>
-                    <select name="type" class="p-2 rounded-lg outline outline-[2px] outline-gray-300 border-none focus:outline-none text-gray-400">
-                        <option>Select an issue type</option>Sele
+                    <select @bind="IssueType" name="type" class="p-2 rounded-lg outline outline-[2px] outline-gray-300 border-none focus:outline-none text-gray-400">
+                        <option>Select an issue type</option>
                         <option>Story</option>
                         <option>Task</option>
                         <option>Bug</option>
@@ -21,18 +22,18 @@
 
                 <div class="grid">
                     <label class="text-slate-600 text-lg">Summary</label>
-                    <input class="p-2 rounded-lg outline outline-[2px] outline-gray-300 border-none  focus:outline-blue-600" type="string" placeholder="e.g Create a new program"/>
+                    <input @bind="Summary" class="p-2 rounded-lg outline outline-[2px] outline-gray-300 border-none  focus:outline-blue-600" type="string" placeholder="e.g Create a new program"/>
                 </div>
 
                 <div class="grid">
                     <label class="text-slate-600 text-lg">Issue Description</label>
-                    <textarea class="p-2 h-[10rem] rounded-lg outline outline-[2px] outline-gray-300 border-none  focus:outline-blue-600" type="string" placeholder="Write details here........"/>
+                    <textarea @bind="IssueDescription" class="p-2 h-[10rem] rounded-lg outline outline-[2px] outline-gray-300 border-none  focus:outline-blue-600" type="string" placeholder="Write details here........"/>
                 </div>
 
                 <div class="flex gap-5">
                     <div class="grid w-full">
                     <label class="text-slate-600 text-lg">Issue State</label>
-                    <select name="type" class="px-1 py-2 rounded-lg outline outline-[2px] outline-gray-300 border-none focus:outline-none w-full text-gray-400">
+                    <select @bind="IssueState" name="type" class="px-1 py-2 rounded-lg outline outline-[2px] outline-gray-300 border-none focus:outline-none w-full text-gray-400">
                         <option>Select an issue state</option>
                         <option>New</option>
                         <option>Pending</option>
@@ -46,7 +47,7 @@
                 </div>
 
                 <div class="flex justify-end mt-5">
-                    <button class="bg-blue-700 py-2 px-3 rounded-lg text-lg text-white w-2/12">Create</button>
+                    <button @onclick="CreateNewIssue" class="bg-blue-700 py-2 px-3 rounded-lg text-lg text-white w-2/12">Create</button>
                 </div>
             </div>
         </div>

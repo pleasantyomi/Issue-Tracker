@@ -1046,3 +1046,4 @@ C:\Users\P_DEV\Documents\C#\Tracker\Tracker\Tracker\obj\Debug\net8.0\Tracker.dll
 C:\Users\P_DEV\Documents\C#\Tracker\Tracker\Tracker\obj\Debug\net8.0\refint\Tracker.dll
 C:\Users\P_DEV\Documents\C#\Tracker\Tracker\Tracker\obj\Debug\net8.0\Tracker.pdb
 C:\Users\P_DEV\Documents\C#\Tracker\Tracker\Tracker\obj\Debug\net8.0\ref\Tracker.dll
+C:\Users\P_DEV\Documents\C#\Tracker\Tracker\Tracker\obj\Debug\net8.0\Tracker.sourcelink.json

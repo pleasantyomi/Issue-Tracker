@@ -1,5 +1,6 @@
 @page "/"
 @using Tracker.Components
+@using Tracker.Pages
 @inject IVersionProvider VersionProvider
 
 <div  class="flex mx-auto gap-10 align-center w-10/12 h-[80vh] relative mt-[4rem]">
@@ -7,6 +8,33 @@
         <div class="flex justify-between items-center">
             <h1 class="font-semibold text-xl text-gray-800">To Do</h1>
             <button @onclick="OpenDialog" class="bg-blue-700 w-10 h-10 rounded-full text-2xl text-white block">+</button>
+        </div>
+
+        <div class="w-11/12 mx-auto h-fit pb-5 rounded-lg bg-white mt-5">
+            <div class="w-full py-1 bg-blue-200 rounded-t-lg"></div>
+            <div class="px-5 pt-3 grid gap-2">
+                <h1 class="text-gray-700 text-lg leading-none">Write a logic to add a button to the page</h1>
+                <div class="bg-gray-200 w-fit h-fit py-1 px-2 rounded-md">
+                    <p class="text-[14px] font-bold">Due date: 21/04/2024</p>
+                </div>
+                <p class="font-bold uppercase text-[12px]">task</p>
+            </div>
+        </div>
+
+        <div>
+            @foreach(var issue in Issues){
+            <div class="w-11/12 mx-auto h-fit pb-5 rounded-lg bg-white mt-5">
+                <div class="w-full py-1 bg-blue-200 rounded-t-lg"></div>
+                <div class="px-5 pt-3 grid gap-2">
+                    <h1 class="text-gray-700 text-lg leading-none">@issue.summary</h1>
+                    <div class="bg-gray-200 w-fit h-fit py-1 px-2 rounded-sm">
+                        <p class="text-[14px] font-bold">Due date: @issue.date</p>
+                    </div>
+                    <p class="font-bold uppercase text-[12px]">@issue.type</p>
+
+                </div>
+            </div>
+            }
         </div>
     </div>
 
@@ -23,4 +51,4 @@
     </div>
 </div>
 
-<Dialog @ref="dialog"/>
+<Dialog @ref="dialog" OnIssueCreated="HandleNewIssue"/>
