@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "Tracker",
   "resources": {
-    "hash": "sha256-4kvb2fNWgJ9E7rMNTrfAeDDmQoQ6BrrPJWt21DaJW9s=",
+    "hash": "sha256-Vdnt8s3bb5p+DFdWaGQIY94shrawxBkp0SlxbMl2iRE=",
     "jsModuleNative": {
       "dotnet.native.8.0.6.wf7ovvtu65.js": "sha256-YU6M9+jtDVnB8/wtrgIndOstzNh778Ls8g9XnbjorSk="
     },
@@ -212,10 +212,10 @@
       "mscorlib.wasm": "sha256-masKveCdoRSahF99doEQk7H3YN2wHLVIE4M/Zu8OoD8=",
       "netstandard.wasm": "sha256-z1EJOmgVhSpTopn7Tek/0P//MKGF1I3NUD/sh4oLnwY=",
       "System.Private.CoreLib.wasm": "sha256-tuIWpR30u0OoEVtv4pXZ47mEpI2AmFBIyYFPnqDZZfw=",
-      "Tracker.wasm": "sha256-yiHLw+OmOg8lwIgiznfFqrURFGqQa485TNhOb9OcPyQ="
+      "Tracker.wasm": "sha256-IieqEY3GOHA6gOSS7Oaf48jMhrQH73aXJw4EvCZmcgA="
     },
     "pdb": {
-      "Tracker.pdb": "sha256-qIZ0F+wNpKRjDEEXuAvKW6Q4GfS7d8ZqvTj3ba1J9ps="
+      "Tracker.pdb": "sha256-OeRFjIPhhsSiUCfU6klNidpkAqrB/F5fKnK2bEa914o="
     }
   },
   "cacheBootResources": true,
