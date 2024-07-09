@@ -5,129 +5,116 @@
 @using System.Linq
 @inject IVersionProvider VersionProvider
 
-<div  class="flex mx-auto gap-10 align-center w-10/12 h-[80vh] relative mt-[4rem]">
-    @* TO DO *@
+<div class="flex mx-auto gap-10 align-center w-10/12 h-[80vh] relative mt-[4rem]">
+    <!-- TO DO -->
     <div class="rounded-[20px] p-5 bg-stone-100 w-full h-full">
         <div class="flex justify-between items-center">
             <h1 class="font-semibold text-xl text-gray-800">To Do</h1>
             <button @onclick="OpenDialog" class="bg-blue-700 w-10 h-10 rounded-full text-2xl text-white block">+</button>
         </div>
 
+        <div>
+            <input @bind="searchQuery" placeholder="Search by title..." class="p-2 rounded-lg outline outline-[2px] outline-gray-300 border-none focus:outline-none text-gray-400 w-full mt-2"/>
+        </div>
+
         <div class="overflow-y-auto h-[calc(100%-56px)]">
-            <div class="w-11/12 mx-auto h-fit pb-5 rounded-lg bg-white mt-5">
-                <div class="w-full py-1 bg-blue-200 rounded-t-lg"></div>
-                <div class="px-5 pt-3 grid gap-2">
-                    <h1 class="text-gray-700 text-lg leading-none">Build a Bot</h1>
-                    <div class="bg-gray-200 w-fit h-fit py-1 px-2 rounded-md">
-                        <p class="text-[14px] font-bold">Due date: 24/09/2024</p>
-                    </div>
-                    <p class="font-bold uppercase text-[12px]">Task</p>
-                </div>
-            </div>
-
             <div>
-                @foreach(var issue in Issues){
-                    if(issue.state == "New"){
-                        <div class="relative w-11/12 mx-auto h-fit pb-5 rounded-lg bg-white mt-5">
-                            <div class="w-full py-1 bg-gray-200 rounded-t-lg"></div>
-                            <div class="px-5 pt-3 flex justify-between items-top">
-                                <div class="grid gap-2">
-                                    <h1 class="text-gray-700 text-lg leading-none">@issue.summary</h1>
-                                    <div class="bg-gray-200 w-fit h-fit py-1 px-2 rounded-md">
-                                        <p class="text-[14px] font-bold">Due date: @issue.date</p>
+                @foreach (var issue in FilteredIssues.Where(i => i.state == "New"))
+                {
+                    <div class="relative w-11/12 mx-auto h-fit pb-5 rounded-lg bg-white mt-5">
+                        <div class="w-full py-1 bg-gray-200 rounded-t-lg"></div>
+                        <div class="px-5 pt-3 flex justify-between items-top">
+                            <div class="grid gap-2">
+                                <h1 class="text-gray-700 text-lg leading-none">@issue.summary</h1>
+                                <div class="bg-gray-200 w-fit h-fit py-1 px-2 rounded-md">
+                                    <p class="text-[14px] font-bold">Due date: @issue.date.ToShortDateString()</p>
+                                </div>
+                                <p class="font-bold uppercase text-[12px]">@issue.type</p>
+                            </div>
+                            <div>
+                                <button @onclick="() => ToggleMenu(issue.Id)" class="text-xl">⋮</button>
+                                @if (issue.IsMenuOpen)
+                                {
+                                    <div class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-20">
+                                        <button @onclick="() => EditIssue(issue)" class="block px-4 py-2 text-sm w-full text-gray-700 hover:bg-gray-100">Edit</button>
+                                        <button @onclick="() => DeleteIssue(issue.Id)" class="block px-4 py-2 text-sm w-full text-gray-700 hover:bg-gray-100">Delete</button>
                                     </div>
-                                    <p class="font-bold uppercase text-[12px]">@issue.type</p>
-                                </div>
-
-                                <div>
-                                    <button @onclick="() => ToggleMenu(issue)" class="text-xl">⋮</button>
-                                    @if (issue.IsMenuOpen)
-                                    {
-                                        <div class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-20">
-                                            <button @onclick="() => EditIssue(issue)" class="block px-4 py-2 text-sm w-full text-gray-700 hover:bg-gray-100">Edit</button>
-                                            <button @onclick="() => DeleteIssue(issue)" class="block px-4 py-2 text-sm w-full text-gray-700 hover:bg-gray-100">Delete</button>
-                                        </div>
-                                    }
-                                </div>
+                                }
                             </div>
                         </div>
-                    }
+                    </div>
                 }
             </div>
         </div>
     </div>
 
-    @* PENDING *@
+    <!-- PENDING -->
     <div class="rounded-[20px] p-5 bg-stone-100 w-full h-full">
         <div>
             <h1 class="font-semibold text-xl text-gray-800">IN PROGRESS</h1>
             <div class="overflow-y-auto h-[calc(100%-56px)]">
-                @foreach(var issue in Issues){
-                    if(issue.state == "Pending"){
-                        <div class="relative w-11/12 mx-auto h-fit pb-5 rounded-lg bg-white mt-5">
-                            <div class="w-full py-1 bg-gray-200 rounded-t-lg"></div>
-                            <div class="px-5 pt-3 flex justify-between items-top">
-                                <div class="grid gap-2">
-                                    <h1 class="text-gray-700 text-lg leading-none">@issue.summary</h1>
-                                    <div class="bg-gray-200 w-fit h-fit py-1 px-2 rounded-md">
-                                        <p class="text-[14px] font-bold">Due date: @issue.date</p>
+                @foreach (var issue in FilteredIssues.Where(i => i.state == "Pending"))
+                {
+                    <div class="relative w-11/12 mx-auto h-fit pb-5 rounded-lg bg-white mt-5">
+                        <div class="w-full py-1 bg-gray-200 rounded-t-lg"></div>
+                        <div class="px-5 pt-3 flex justify-between items-top">
+                            <div class="grid gap-2">
+                                <h1 class="text-gray-700 text-lg leading-none">@issue.summary</h1>
+                                <div class="bg-gray-200 w-fit h-fit py-1 px-2 rounded-md">
+                                    <p class="text-[14px] font-bold">Due date: @issue.date.ToShortDateString()</p>
+                                </div>
+                                <p class="font-bold uppercase text-[12px]">@issue.type</p>
+                            </div>
+                            <div>
+                                <button @onclick="() => ToggleMenu(issue.Id)" class="text-xl">⋮</button>
+                                @if (issue.IsMenuOpen)
+                                {
+                                    <div class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-20">
+                                        <button @onclick="() => EditIssue(issue)" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full">Edit</button>
+                                        <button @onclick="() => DeleteIssue(issue.Id)" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full">Delete</button>
                                     </div>
-                                    <p class="font-bold uppercase text-[12px]">@issue.type</p>
-                                </div>
-
-                                <div>
-                                    <button @onclick="() => ToggleMenu(issue)" class="text-xl">⋮</button>
-                                    @if (issue.IsMenuOpen)
-                                    {
-                                        <div class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-20">
-                                            <button @onclick="() => EditIssue(issue)" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full">Edit</button>
-                                            <button @onclick="() => DeleteIssue(issue)" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full">Delete</button>
-                                        </div>
-                                    }
-                                </div>
+                                }
                             </div>
                         </div>
-                    }
+                    </div>
                 }
             </div>
         </div>
     </div>
 
-    @* COMPLETED *@
+    <!-- COMPLETED -->
     <div class="rounded-[20px] p-5 bg-stone-100 w-full h-full">
         <div>
             <h1 class="font-semibold text-xl text-gray-800">DONE</h1>
             <div class="overflow-y-auto h-[calc(100%-56px)]">
-                @foreach(var issue in Issues){
-                    if(issue.state == "Completed"){
-                        <div class="relative w-11/12 mx-auto h-fit pb-5 rounded-lg bg-white mt-5">
-                            <div class="w-full py-1 bg-gray-200 rounded-t-lg"></div>
-                            <div class="px-5 pt-3 flex justify-between items-top">
-                                <div class="grid gap-2">
-                                    <h1 class="text-gray-700 text-lg leading-none">@issue.summary</h1>
-                                    <div class="bg-gray-200 w-fit h-fit py-1 px-2 rounded-md">
-                                        <p class="text-[14px] font-bold">Due date: @issue.date</p>
+                @foreach (var issue in FilteredIssues.Where(i => i.state == "Completed"))
+                {
+                    <div class="relative w-11/12 mx-auto h-fit pb-5 rounded-lg bg-white mt-5">
+                        <div class="w-full py-1 bg-gray-200 rounded-t-lg"></div>
+                        <div class="px-5 pt-3 flex justify-between items-top">
+                            <div class="grid gap-2">
+                                <h1 class="text-gray-700 text-lg leading-none">@issue.summary</h1>
+                                <div class="bg-gray-200 w-fit h-fit py-1 px-2 rounded-md">
+                                    <p class="text-[14px] font-bold">Due date: @issue.date.ToShortDateString()</p>
+                                </div>
+                                <p class="font-bold uppercase text-[12px]">@issue.type</p>
+                            </div>
+                            <div>
+                                <button @onclick="() => ToggleMenu(issue.Id)" class="text-xl">⋮</button>
+                                @if (issue.IsMenuOpen)
+                                {
+                                    <div class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-20">
+                                        <button @onclick="() => EditIssue(issue)" class="block px-4 py-2 text-sm text-gray-700 w-full hover:bg-gray-100">Edit</button>
+                                        <button @onclick="() => DeleteIssue(issue.Id)" class="block px-4 py-2 text-sm w-full text-gray-700 hover:bg-gray-100">Delete</button>
                                     </div>
-                                    <p class="font-bold uppercase text-[12px]">@issue.type</p>
-                                </div>
-
-                                <div>
-                                    <button @onclick="() => ToggleMenu(issue)" class="text-xl">⋮</button>
-                                    @if (issue.IsMenuOpen)
-                                    {
-                                        <div class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-20">
-                                            <button @onclick="() => EditIssue(issue)" class="block px-4 py-2 text-sm text-gray-700 w-full hover:bg-gray-100">Edit</button>
-                                            <button @onclick="() => DeleteIssue(issue)" class="block px-4 py-2 text-sm w-full text-gray-700 hover:bg-gray-100">Delete</button>
-                                        </div>
-                                    }
-                                </div>
+                                }
                             </div>
                         </div>
-                    }
+                    </div>
                 }
             </div>
         </div>
     </div>
 </div>
 
-<Dialog @ref="dialog" OnIssueCreated="HandleNewIssue"/>
+<Dialog @ref="dialog" OnIssueCreated="HandleNewIssue" />

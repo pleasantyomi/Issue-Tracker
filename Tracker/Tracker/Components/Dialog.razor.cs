@@ -8,57 +8,31 @@ using Tracker.Pages;
 
 namespace Tracker.Components
 {
-    public partial class Dialog
+    public partial class Dialog{
+    [Parameter] public EventCallback<Issue> OnIssueCreated { get; set; }
+    private QuillEditor quillEditor;
+    private bool isVisible;
+    private Issue currentIssue;
+
+    public void Show(Issue issue = null)
     {
-        public bool isVisible { get; set; }
-        public string IssueType { get; set; }
-        public string Summary { get; set; }
-        public string IssueDescription { get; set;}
-        public string IssueState { get; set; }
-        public string DueDate { get; set; }
-        [Parameter]
-        public EventCallback<Issue> OnIssueCreated { get; set; }
-        public Issue currentIssue;
-
-        public async Task CreateNewIssue(){
-            var newIssue = new Issue{
-                type = IssueType,
-                summary = Summary,
-                description = IssueDescription,
-                state = IssueState,
-                date = DueDate,
-            };
-
-            await OnIssueCreated.InvokeAsync(newIssue);
-            Hide();
-        }
-
-        public void Show(Issue issue = null)
-        {
-        if (issue != null)
-        {
-            currentIssue = issue;
-        }
-        else
-        {
-            currentIssue = new Issue();
-        }
-
+        currentIssue = issue ?? new Issue();
         isVisible = true;
-        }
+        StateHasChanged();
+    }
 
-        public void Hide(){
-            isVisible = false;
-            StateHasChanged();
-        }
+    public void Hide()
+    {
+        isVisible = false;
+        StateHasChanged();
+    }
 
-        public void SaveIssue()
-        {
-        if (currentIssue.Id == 0)
-        {
-            OnIssueCreated.InvokeAsync(currentIssue);
-        }
+    private async Task CreateOrUpdateIssue()
+    {
+        currentIssue.description = await quillEditor.GetContent();
+        await OnIssueCreated.InvokeAsync(currentIssue);
         Hide();
-        }
+    }
+
     }
 }

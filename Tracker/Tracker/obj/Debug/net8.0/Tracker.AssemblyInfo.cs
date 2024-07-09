@@ -17,7 +17,7 @@ using System.Reflection;
     " a component library built on top of Blazor and CSS frameworks like Bootstrap, F" +
     "luentUI2, Tailwind, Bulma and Material.\n\t\t")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.5.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.5+00bb9c98a6204f3c36821cdd7e122ceb8e17d071")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.5+963ac2d6f74d285e7232c34265cf69b26031fdb2")]
 [assembly: System.Reflection.AssemblyProductAttribute("Tracker")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Tracker")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.5.0.0")]

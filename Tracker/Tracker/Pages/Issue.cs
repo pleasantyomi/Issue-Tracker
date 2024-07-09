@@ -13,7 +13,7 @@ namespace Tracker.Pages
         public string summary { get; set; }
         public string description { get; set; }
         public string state { get; set; }
-        public string date { get; set; }
+        public DateTime date { get; set; }
         public bool IsMenuOpen { get; set; }
         public int Id { get; set; }
     }
