@@ -18,6 +18,7 @@ namespace Tracker.Components
         public string DueDate { get; set; }
         [Parameter]
         public EventCallback<Issue> OnIssueCreated { get; set; }
+        public Issue currentIssue;
 
         public async Task CreateNewIssue(){
             var newIssue = new Issue{
@@ -32,9 +33,18 @@ namespace Tracker.Components
             Hide();
         }
 
-        public void Show(){
-            isVisible = true;
-            StateHasChanged();
+        public void Show(Issue issue = null)
+        {
+        if (issue != null)
+        {
+            currentIssue = issue;
+        }
+        else
+        {
+            currentIssue = new Issue();
+        }
+
+        isVisible = true;
         }
 
         public void Hide(){
@@ -42,5 +52,13 @@ namespace Tracker.Components
             StateHasChanged();
         }
 
+        public void SaveIssue()
+        {
+        if (currentIssue.Id == 0)
+        {
+            OnIssueCreated.InvokeAsync(currentIssue);
+        }
+        Hide();
+        }
     }
 }

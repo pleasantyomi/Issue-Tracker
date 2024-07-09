@@ -14,6 +14,8 @@ namespace Tracker.Pages
         public string description { get; set; }
         public string state { get; set; }
         public string date { get; set; }
+        public bool IsMenuOpen { get; set; }
+        public int Id { get; set; }
     }
 
 }

@@ -24,7 +24,19 @@ namespace Tracker.Pages
         public void HandleNewIssue(Issue newIssue){
             Issues.Add(newIssue);
             StateHasChanged();
+        }
 
+        public void ToggleMenu(Issue issue){
+            issue.IsMenuOpen = !issue.IsMenuOpen;
+        }
+
+        public void EditIssue(Issue issue){
+            dialog.Show(issue);
+
+        }
+
+        public void DeleteIssue(Issue issue){
+            Issues.Remove(issue);
         }
         
     }
