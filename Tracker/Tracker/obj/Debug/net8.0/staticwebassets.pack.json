@@ -57,6 +57,10 @@
       "PackagePath": "staticwebassets\\js\\material\\material.min.js.map"
     },
     {
+      "Id": "C:\\Users\\P_DEV\\Documents\\C#\\Tracker\\Tracker\\Tracker\\wwwroot\\quillEditor.js",
+      "PackagePath": "staticwebassets\\quillEditor.js"
+    },
+    {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Tracker.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },

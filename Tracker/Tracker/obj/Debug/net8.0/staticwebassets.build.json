@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "pXmSJMj4ZWz0BW31fQMO1YQNG0lHCRXx5Z1AaBaUqVs=",
+  "Hash": "CG/n9WVdXubbg6wy5b/L3HoJO0Rn2ohh8XNSWi47fUc=",
   "Source": "Tracker",
   "BasePath": "/",
   "Mode": "Root",
@@ -9439,6 +9439,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\material\\material.min.js.map"
+    },
+    {
+      "Identity": "C:\\Users\\P_DEV\\Documents\\C#\\Tracker\\Tracker\\Tracker\\wwwroot\\quillEditor.js",
+      "SourceId": "Tracker",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\P_DEV\\Documents\\C#\\Tracker\\Tracker\\Tracker\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "quillEditor.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\quillEditor.js"
     }
   ]
 }

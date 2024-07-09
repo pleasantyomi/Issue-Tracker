@@ -27,7 +27,7 @@ namespace Tracker.Components
         StateHasChanged();
     }
 
-    private async Task CreateOrUpdateIssue()
+    private async Task CreateIssue()
     {
         currentIssue.description = await quillEditor.GetContent();
         await OnIssueCreated.InvokeAsync(currentIssue);
